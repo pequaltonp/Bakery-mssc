@@ -30,7 +30,7 @@ public class BakeryController {
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Location", "/api/v1/bakery/" +
-                bakeryDto.getId().toString());
+                savedBakeryDto.getId().toString());
 
         return new ResponseEntity(httpHeaders, HttpStatus.CREATED);
     }
@@ -40,5 +40,11 @@ public class BakeryController {
         bakeryService.updateBakeryDTO(bakeryId, bakeryDto);
 
         return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+    @DeleteMapping("/{bakeryId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteBakery(@PathVariable("bakeryId") UUID bakeryId) {
+        bakeryService.deleteBakeryById(bakeryId);
     }
 }

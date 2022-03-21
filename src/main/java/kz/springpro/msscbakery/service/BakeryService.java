@@ -12,4 +12,6 @@ public interface BakeryService {
     BakeryDto saveBakeryDTO(BakeryDto bakeryDto);
 
     void updateBakeryDTO(UUID id, BakeryDto bakeryDto);
+
+    void deleteBakeryById(UUID bakeryId);
 }
