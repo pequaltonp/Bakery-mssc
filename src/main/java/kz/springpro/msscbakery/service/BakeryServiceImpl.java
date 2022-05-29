@@ -1,6 +1,7 @@
 package kz.springpro.msscbakery.service;
 
 import kz.springpro.msscbakery.web.model.BakeryDto;
+import kz.springpro.msscbakery.web.model.BakeryTypeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import java.util.UUID;
@@ -11,12 +12,19 @@ public class BakeryServiceImpl implements BakeryService {
 
     @Override
     public BakeryDto getBakeryById(UUID id) {
-        return BakeryDto.builder().id(UUID.randomUUID()).name("bun").calorie(511.12).typeOfProduct("BakeryProduct").build();
+        return BakeryDto.builder()
+                .id(UUID.randomUUID())
+                .name("bun")
+                .calorie(511.12)
+                .bakeryType(BakeryTypeEnum.CAKE)
+                .build();
     }
 
     @Override
     public BakeryDto saveBakeryDTO(BakeryDto bakeryDto) {
-        return BakeryDto.builder().id(UUID.randomUUID()).build();
+        return BakeryDto.builder()
+                .id(UUID.randomUUID())
+                .build();
     }
 
     @Override
