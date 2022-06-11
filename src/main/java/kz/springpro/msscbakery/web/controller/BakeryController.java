@@ -29,6 +29,7 @@ public class BakeryController {
                 .name("bun")
                 .calorie(511.12)
                 .bakeryType(BakeryTypeEnum.CAKE)
+                .upc(Double.doubleToLongBits(Math.random()))
                 .build(), HttpStatus.OK);
     }
 
@@ -37,7 +38,7 @@ public class BakeryController {
         BakeryDto savedBakeryDto = bakeryService.saveBakeryDTO(bakeryDto);
 
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("Location", "/api/v1/bakery/" +
+        httpHeaders.add("Location", "/api/bakery/" +
                 savedBakeryDto.getId().toString());
 
         return new ResponseEntity(httpHeaders, HttpStatus.CREATED);
